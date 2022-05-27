@@ -95,7 +95,7 @@ public class Gun : MonoBehaviour
             if (target != null)
             {
                 //상대방의 OnDamageable 함수를 실행시켜 상대방에 데미지 주기
-                target.OnDamage(gunData.damage, hitPosition, hit.normal);
+                target.OnDamage(gunData.damage, hit.point, hit.normal);
             }
 
             //레이가 충돌한 위치 저장
