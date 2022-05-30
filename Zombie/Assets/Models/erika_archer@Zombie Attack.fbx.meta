@@ -27,6 +27,26 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Lashes_MAT
     second: {fileID: 2100000, guid: 856d93b28b7aa416faf25b8b642232a9, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Erika_Archer_Clothes_diffuse
+    second: {fileID: 2800000, guid: 53c69ffa966a45142bea62424fdd9224, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Erika_Archer_Clothes_normal
+    second: {fileID: 2800000, guid: 39194d90116c0c24fa9c40abe7c4b261, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: FemaleFitA_Body_diffuse
+    second: {fileID: 2800000, guid: ac9482f6ddc4c26418a6966f7550ca91, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: FemaleFitA_StdNM
+    second: {fileID: 2800000, guid: fa6ae793d0340af44807df5923804e07, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
