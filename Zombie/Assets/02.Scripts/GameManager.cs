@@ -11,21 +11,49 @@ public class GameManager : MonoBehaviour
             if (m_instance == null)
             {
                 //씬에서 GameManager 오브젝트를 찾아서 할당
-                
+                m_instance = FindObjectOfType<GameManager>();
             }
+
+            //싱글턴 오브젝트 반환
+            return m_instance;
         }
     }
 
-    public bool isGameover;
-    // Start is called before the first frame update
-    void Start()
+    private static GameManager m_instance; //singleton이 할당 될 static 변수
+
+    private int score = 0; //현재 게임 점수
+    public bool isGameover {get; private set;} //Game over 상태
+    
+    private void Awake() {
+        //씬에 싱글턴 오브젝트가 된 다른 게임매니저 오브젝트가 있다면
+        if (instance != this)
+        {
+            //자신을 파괴
+            Destroy(gameObject);
+        }
+    }
+    private void Start()
     {
-        
+        //플레이어 캐릭터의 사망 이벤트 발생 시 게임오버
+        FindObjectOfType<PlayerHealth>().onDeath += EndGame;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   //점수를 추가하고 UI 갱신
+   public void AddScore(int newScore){
+       //게임오버가 아닌 상태에서만 점수 추가 가능
+       if (!isGameover){
+           //점수 추가
+           score += newScore;
+           //점수 UI 텍스트 갱신
+           UIManager.instance.UpdateScoreText(score);
+       }
+   }
+
+   //게임오버 처리
+   public void EndGame(){
+       //게임오버 상태를 참으로 변경
+       isGameover = true;
+       //게임오버 UI 활성화
+       UIManager.instance.SetActiveGameoverUI(true);
+   }
 }
